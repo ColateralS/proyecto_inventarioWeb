@@ -1,0 +1,517 @@
+<h1
+    class="pt-4 flex justify-center text-3xl tracking-tight leading-10 font-extrabold text-blue-600 sm:text-4xl sm:leading-none md:text-5xl">
+    ESTADÍSTICAS GENERALES</h1>
+<div class="ml-4 mr-4 flex items-center mt-10 bg-gray-400 text-gray-800">
+    <div class="p-4 w-full">
+        <div class="grid grid-cols-12 gap-4 ">
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4 ">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 text-blue-500">
+                        <img src="https://img.icons8.com/plasticine/100/000000/gender-neutral-employee-group.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-sm text-gray-500">Empleados</div>
+                        <% if (users.length > 0) { %>
+                        <div class="font-bold text-lg"><%= users.length %></div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-green-500">
+                        <img src="https://img.icons8.com/plasticine/100/000000/product.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-sm text-gray-500">Productos</div>
+                        <% if (products.length > 0) { %>
+                        <div class="font-bold text-lg"><%= products.length %></div>
+                        <% } else if (products.length <= 0) { %>
+                        <div class="font-bold text-lg">No Hay Productos</div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-green-500">
+                        <img src="https://img.icons8.com/plasticine/100/000000/supplier.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-sm text-gray-500">Proveedores</div>
+                        <% if (providers.length > 0) { %>
+                        <div class="font-bold text-lg"><%= providers.length %></div>
+                        <% } else if (providers.length <= 0) { %>
+                        <div class="font-bold text-lg">No Hay Proveedores</div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-orange-100 text-orange-500">
+                        <img src="https://img.icons8.com/officel/100/000000/select-users.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-sm text-gray-500">Clientes</div>
+                        <% if (clients.length > 0) { %>
+                        <div class="font-bold text-lg"><%= clients.length %></div>
+                        <% } else if (clients.length <= 0) { %>
+                        <div class="font-bold text-lg">No Hay Clientes</div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-green-500">
+                        <img src="https://img.icons8.com/dusk/100/000000/sell.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-sm text-gray-500">Ventas Totales</div>
+                        <% if (sales.length > 0) { %>
+                        <div class="font-bold text-lg"><%= sales.length %></div>
+                        <% } else if (sales.length <= 0) { %>
+                        <div class="font-bold text-lg">No Hay Ventas</div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/fluent/100/000000/total-sales-1.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-sm text-gray-500">Total Vendido</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= total %></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<h1
+    class="pt-4 flex justify-center text-3xl tracking-tight leading-10 font-extrabold text-red-600 sm:text-4xl sm:leading-none md:text-5xl">
+    ESTADÍSTICAS POR MES DEL AÑO 2020</h1>
+<div class="ml-4 mr-4 flex items-center mt-10 bg-gray-400 text-gray-800">
+    <div class="p-4 w-full">
+        <div class="grid grid-cols-12 gap-4 ">
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/january.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Enero</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-01-01' && sale.date <= '2020-01-31'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totalenero = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/february.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Febrero</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-02-01' && sale.date <= '2020-02-29'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totalfebrero = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/march.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Marzo</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-03-01' && sale.date <= '2020-03-31'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totalmarzo = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/april.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Abril</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-04-01' && sale.date <= '2020-04-30'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totalabril = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/may.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Mayo</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-05-01' && sale.date <= '2020-05-31'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totalmayo = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/june.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Junio</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-06-01' && sale.date <= '2020-06-30'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totaljunio = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/july.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Julio</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-07-01' && sale.date <= '2020-07-31'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totaljulio = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/august.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Agosto</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-08-01' && sale.date <= '2020-08-31'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totalagosto = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/september.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Septiembre</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-09-01' && sale.date <= '2020-09-30'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totalseptiembre = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/october.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Octubre</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-10-01' && sale.date <= '2020-10-31'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totaloctubre = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/november.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Noviembre</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-11-01' && sale.date <= '2020-11-30'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totalnoviembre = total %></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <img src="https://img.icons8.com/ios/100/000000/december.png" />
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-md text-gray-700">Diciembre</div>
+                        <div hidden>
+                            <% var suma = 0 %>
+                            <% var total = 0 %>
+                            <% sales.forEach(function (sale) { %>
+                            <% products.forEach(function (product) { %>
+                            <% if(sale.date >= '2020-12-01' && sale.date <= '2020-12-31'){ %>
+                            <% if(sale.product_name == product.name){ %>
+                            <h1><%= suma = sale.quantity * product.price %></h1>
+                            <%= total += suma %>
+                            <% }; %>
+                            <% }; %>
+                            <% }); %>
+                            <% }); %>
+                        </div>
+                        <div class="font-bold text-lg">$<%= totaldiciembre = total %></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="flex justify-center m-5">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    var Enero = "<%= totalenero %>";
+    var Enero1 = parseInt(Enero);
+    var Febrero = "<%= totalfebrero %>";
+    var Marzo = "<%= totalmarzo %>";
+    var Abril = "<%= totalabril %>";
+    var Mayo = "<%= totalmayo %>";
+    var Junio = "<%= totaljunio %>";
+    var Julio = "<%= totaljulio %>";
+    var Agosto = "<%= totalagosto %>";
+    var Septiembre = "<%= totalseptiembre %>";
+    var Octubre = "<%= totaloctubre %>";
+    var Noviembre = "<%= totalnoviembre %>";
+    var Diciembre = "<%= totaldiciembre %>";
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Mes', 'Total Vendido'],
+            ['Ene', Enero1],
+            ['Feb', Febrero],
+            ['Mar', Marzo],
+            ['Abr', Abril],
+            ['May', Mayo],
+            ['Jun', Junio],
+            ['Jul', Julio],
+            ['Ago', Agosto],
+            ['Sep', Septiembre],
+            ['Oct', Octubre],
+            ['Nov', Noviembre],
+            ['Dic', Diciembre],
+        ]);
+
+        var options = {
+            chart: {
+                title: 'Ventas Totales por Mes en el Año 2020'
+            }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+</script>
+
+<div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+
+</div>
+
+
+<div class=" sm:flex sm:justify-center ">
+    <div class="sm:mt-0 sm:ml-3">
+        <a href="/"
+            class=" w-full flex items-center justify-center px-4 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 md:py-4 md:text-md md:px-10 hover:no-underline">
+            Regresar al Menú
+        </a>
+    </div>
+</div>

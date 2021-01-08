@@ -1,0 +1,51 @@
+<div class="grid min-h-screen place-items-center">
+    <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-5/12">
+        <h1 class="text-3xl font-semibold uppercase flex justify-center">Datos de la Tienda</h1>
+        <form class="mt-6" action="/store/add" method="post">
+
+            <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Número de Tienda</label>
+            <input type="number" name="num_store" placeholder="Ingresa un número de tienda (por ejemplo: 1)"
+                class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                required />
+
+            <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Nombre de la Tienda</label>
+            <input type="text" name="name" placeholder="Ingresa el nombre de la Tienda"
+                class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                required />
+
+            <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Dirección de la Tienda</label>
+            <input type="text" name="address" placeholder="Ingresa su Dirección"
+                class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                required />
+
+            <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Teléfono de la Tienda</label>
+            <input type="number" min="6" name="phone" placeholder="Ingresa su Teléfono"
+                class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                required />
+
+            <div class="flex justify-between gap-3">
+
+                <span class="w-1/2">
+                    <label class="block text-xs font-semibold text-gray-600 uppercase">Ciudad</label>
+                    <input type="text" name="city" placeholder="Ciudad"
+                        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                        required />
+                </span>
+                <span class="w-1/2">
+                    <label class="block text-xs font-semibold text-gray-600 uppercase">País</label>
+                    <input type="text" name="country" placeholder="País"
+                        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                        required />
+                </span>
+            </div>
+            <button type="submit"
+                class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-green-600 shadow-lg focus:outline-none hover:bg-green-500 hover:shadow-none rounded">
+                Registrar Tienda
+            </button>
+
+            <a href="/store"
+                class="hover:no-underline flex justify-center w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-red-600 shadow-lg focus:outline-none hover:bg-red-500 hover:shadow-none rounded">Cancelar</a>
+
+        </form>
+    </div>
+</div>

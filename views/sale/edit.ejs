@@ -1,0 +1,26 @@
+<div class="grid min-h-screen place-items-center">
+    <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-5/12">
+        <h1 class="text-3xl font-semibold flex justify-center uppercase">Datos de la Venta</h1>
+        <form class="mt-6" action="/sale/update/<%=sale.id%>" method="POST">
+
+            <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Fecha de la Venta</label>
+            <input type="date" name="date" value="<%=sale.date%>"
+                class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                required />
+
+            <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Cantidad a Comprar</label>
+            <input type="number" min="1" name="quantity" value="<%=sale.quantity%>"
+                class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                required />
+
+            <button type="submit"
+                class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-blue-600 shadow-lg focus:outline-none hover:bg-blue-500 hover:shadow-none rounded">
+                Actualizar Venta
+            </button>
+
+            <a href="/sale"
+                class="hover:no-underline flex justify-center w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-red-600 shadow-lg focus:outline-none hover:bg-red-500 hover:shadow-none rounded">Cancelar</a>
+
+        </form>
+    </div>
+</div>
